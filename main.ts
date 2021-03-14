@@ -6,13 +6,13 @@ let freq = 0
 let dt = 0
 let phase = 0
 let t = input.runningTime()
-music.ringTone(196)
+music.ringTone(131)
 basic.forever(function () {
     dt = input.runningTime() - t
-    freq = Math.map(input.acceleration(Dimension.Z), -1023, 1023, 0.1, 20)
+    freq = Math.map(input.acceleration(Dimension.Z), -1024, 1024, 0.1, 10)
     phase += freq * (dt / 3142)
     t = input.runningTime()
-    a = Math.abs(Math.sin(phase))
+    a = Math.abs(Math.sin(phase)) ** 100
     music.setVolume(a * 127)
     led.plotBarGraph(
     a,
